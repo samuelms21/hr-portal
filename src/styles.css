@@ -1,3 +1,51 @@
-@import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeicons/primeicons.css";
+
+@font-face {
+  font-family: "gotham-book";
+  src: url("assets/fonts/GothamBook.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "gotham-narrow-book";
+  src: url("assets/fonts/GothamNarrow-Book.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "gotham-bold";
+  src: url("assets/fonts/GothamBold.TTF") format("truetype");
+}
+
+@font-face {
+  font-family: "gotham-black";
+  src: url("assets/fonts/Gotham-Black.otf") format("opentype");
+}
+
+:root {
+  --primary-red: #800507;
+  --primary-red-dark: #5e0406;
+  --primary-red-pale: #fa898b;
+  --primary-orange: #fcaf17;
+  --primary-gray: #808285;
+  --secondary-red: #c4161c;
+  --secondary-orange: #f7941e;
+  --secondary-violet: #5b57a6;
+  --secondary-pale-blue: #4a6e8f;
+  --secondary-gray-700: #414042;
+  --secondary-grey-600: #58595b;
+  --secondary-grey-500: #6d6e71;
+  --secondary-grey-400: #bcbec0;
+}
+
+.p-dropdown {
+  border-color: var(--primary-red) !important;
+}
+.p-dropdown:not(.p-disabled).p-focus {
+  box-shadow: 0 0 0 0.1rem var(--primary-red-pale);
+  border-color: var(--primary-red);
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  color: var(--primary-red-dark);
+  background: white;
+}

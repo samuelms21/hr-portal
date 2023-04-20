@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputTextModule } from 'primeng/inputtext';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,7 +31,30 @@ import { StaffPermitFormComponent } from './staff/staff-permit-form/staff-permit
 import { StaffPermitHistoryComponent } from './staff/staff-permit-history/staff-permit-history.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, AdminComponent, AdminDashboardComponent, EmployeeDataComponent, EmployeeDetailComponent, AddEditEmployeeComponent, HeaderComponent, SidebarComponent, StaffComponent, EmployeeLeaveConfirmationComponent, EmployeeLeaveAllComponent, EmployeeLeaveReportComponent, SettingsHolidayComponent, SettingsLeaveLimitComponent, SettingsPermitCategoryComponent, StaffDashboardComponent, StaffInfoComponent, StaffLeaveFormComponent, StaffLeaveHistoryComponent, StaffPermitFormComponent, StaffPermitHistoryComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    AdminComponent,
+    AdminDashboardComponent,
+    EmployeeDataComponent,
+    EmployeeDetailComponent,
+    AddEditEmployeeComponent,
+    HeaderComponent,
+    SidebarComponent,
+    StaffComponent,
+    EmployeeLeaveConfirmationComponent,
+    EmployeeLeaveAllComponent,
+    EmployeeLeaveReportComponent,
+    SettingsHolidayComponent,
+    SettingsLeaveLimitComponent,
+    SettingsPermitCategoryComponent,
+    StaffDashboardComponent,
+    StaffInfoComponent,
+    StaffLeaveFormComponent,
+    StaffLeaveHistoryComponent,
+    StaffPermitFormComponent,
+    StaffPermitHistoryComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -38,6 +62,8 @@ import { StaffPermitHistoryComponent } from './staff/staff-permit-history/staff-
     BrowserAnimationsModule,
     InputTextModule,
     FormsModule,
+    ReactiveFormsModule,
+    DropdownModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

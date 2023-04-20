@@ -1,1 +1,40 @@
-<p>login works!</p>
+<div class="container">
+  <div class="login-container">
+    <img
+      src="./assets/images/cit-logo/cit-logo-square-compact-white.png"
+      alt="CIT Logo"
+    />
+    <h1>
+      Sistem Informasi Pengajuan Cuti dan Izin<br />Calvin Institute of
+      Technology
+    </h1>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <input
+        type="text"
+        pInputText
+        formControlName="username"
+        placeholder="Username"
+      />
+      <input
+        type="password"
+        pInputText
+        formControlName="password"
+        placeholder="Password"
+      />
+      <p-dropdown
+        formControlName="selectedRole"
+        [options]="roles"
+        [style]="{ minWidth: '100%', marginBottom: '2rem' }"
+        placeholder="Login Sebagai"
+      ></p-dropdown>
+      <button
+        type="submit"
+        pButton
+        pRipple
+        label="LOGIN"
+        (click)="login()"
+        class="login-btn"
+      ></button>
+    </form>
+  </div>
+</div>
