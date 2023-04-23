@@ -24,17 +24,14 @@
       <p-dropdown
         formControlName="selectedRole"
         [options]="roles"
-        [style]="{ minWidth: '100%', marginBottom: '2rem' }"
         placeholder="Login Sebagai"
       ></p-dropdown>
-      <button
-        type="submit"
-        pButton
-        pRipple
+      <p-button
         label="LOGIN"
         (click)="login()"
-        class="login-btn"
-      ></button>
+        id="login-btn"
+        styleClass="p-button-warning"
+      ></p-button>
     </form>
   </div>
 </div>

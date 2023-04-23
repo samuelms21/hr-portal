@@ -5,7 +5,7 @@
   align-items: center;
 }
 .login-container {
-  background-color: var(--primary-red-dark);
+  background-color: var(--primary-color);
   padding: 4rem 2rem;
   max-width: 496px;
 }
@@ -26,28 +26,16 @@ form {
 }
 .login-container > form > input,
 .login-container > form > input :hover {
-  border-color: var(--primary-red);
   display: block;
   min-width: 100%;
-  font-family: "gotham-book";
   margin: 1rem 0;
 }
-.login-container > form > input:focus,
-.login-container > form > input:active {
-  box-shadow: 0 0 0 0.1rem var(--primary-red-pale);
-  border-color: var(--primary-red);
-}
-.login-btn {
+:host ::ng-deep .p-button {
   display: block;
-  width: 100%;
+  min-width: 100%;
   font-family: "gotham-bold";
-  background-color: var(--primary-orange);
-  border-color: var(--primary-orange);
 }
-.login-btn:hover,
-.login-btn:active,
-.login-btn:focus {
-  background-color: var(--secondary-orange);
-  border-color: var(--secondary-orange);
-  box-shadow: 0 0 0 0.1rem var(--secondary-orange);
+:host ::ng-deep .p-dropdown {
+  min-width: 100%;
+  margin-bottom: 2rem;
 }
