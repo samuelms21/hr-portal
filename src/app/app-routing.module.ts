@@ -22,7 +22,7 @@ import { StaffPermitHistoryComponent } from './staff/staff-permit-history/staff-
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'admin',
     pathMatch: 'full',
   },
   {

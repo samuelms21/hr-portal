@@ -1,1 +1,16 @@
-<p>sidebar works!</p>
+<div class="sidebar">
+  <div class="profile-section">
+    <img src="{{profilePictureUrl}}" alt="Profile Picture" />
+    <div class="profile-info">
+      <h2>John Doe</h2>
+      <p>Administrator</p>
+    </div>
+  </div>
+  <ul>
+    <li><a routerLink="/"><ng-icon name="matHome"></ng-icon>Beranda</a></li>
+    <li><a routerLink="/about"><ng-icon name="matPeople"></ng-icon>Data Karyawan</a></li>
+    <li><a routerLink="/contact"><ng-icon name="matPeople"></ng-icon>Data Cuti</a></li>
+    <li><a routerLink="/contact"><ng-icon name="matPeople"></ng-icon>Data Izin</a></li>
+    <li><a routerLink="/contact"><ng-icon name="matSettings"></ng-icon>Settings</a></li>
+  </ul>
+</div>
