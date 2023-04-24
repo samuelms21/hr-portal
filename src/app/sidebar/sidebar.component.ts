@@ -1,4 +1,7 @@
+import { Input } from '@angular/core';
 import { Component } from '@angular/core';
+import { SidebarItem } from '../models/sidebar-item';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,15 +9,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent {
-  profilePictureUrl = 'https://picsum.photos/200/300';
-  isCutiOpen = false
+  @Input() profilePictureUrl = '/assets/images/users/placeholder-user.jpg';
+  @Input() sidebarItems: SidebarItem[] = [];
 
-  toggleCuti(){
-    this.isCutiOpen = !this.isCutiOpen
-  }
-  isIzinOpen = false
-
-  toggleIzin(){
-    this.isIzinOpen = !this.isIzinOpen
-  }
 }

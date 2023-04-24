@@ -7,40 +7,20 @@
     </div>
   </div>
   <ul>
-    <li>
-      <a routerLink="/"><ng-icon name="matHome"></ng-icon>Beranda</a>
-    </li>
-    <li>
-      <a routerLink="/employee-data"
-        ><ng-icon name="matPeople"></ng-icon>Data Karyawan</a
-      > 
-    </li>
-    <li>
-      <a href="#" (click)="toggleCuti()">
-        <ng-icon name="matPeople"></ng-icon>Data Cuti
-        <ng-icon name="matKeyboardArrowDown"></ng-icon>
+    <li *ngFor="let sidebarItem of sidebarItems">
+      <a routerLink="{{ sidebarItem.route }}">
+        <ng-icon name="{{ sidebarItem.icon }}"></ng-icon>
+        {{ sidebarItem.title }}
+        <ng-icon
+          *ngIf="sidebarItem.children"
+          name="matKeyboardArrowDown"
+        ></ng-icon>
       </a>
-      <ul [ngClass]="{ show: isCutiOpen }">
-        <li><a routerLink="/employee-leave-confirmation">Cuti 1</a></li>
-        <li><a routerLink="/employee-leave-all">Cuti 2</a></li>
-        <li><a routerLink="/employee-leave-report">Cuti 3</a></li>
+      <ul *ngIf="sidebarItem.children">
+        <li *ngFor="let child of sidebarItem.children">
+          <a routerLink="{{ child.route }}">{{ child.title }}</a>
+        </li>
       </ul>
-    </li>
-    <li>
-      <a href="#" (click)="toggleIzin()">
-        <ng-icon name="matPeople"></ng-icon>Data Izin
-        <ng-icon name="matKeyboardArrowDown"></ng-icon>
-      </a>
-      <ul [ngClass]="{ show: isIzinOpen }">
-        <li><a routerLink="/contact">Izin 1</a></li>
-        <li><a routerLink="/contact">Izin 2</a></li>
-        <li><a routerLink="/contact">Izin 3</a></li>
-      </ul>
-    </li>
-    <li>
-      <a routerLink="/contact"
-        ><ng-icon name="matSettings"></ng-icon>Settings</a
-      >
     </li>
   </ul>
 </div>
