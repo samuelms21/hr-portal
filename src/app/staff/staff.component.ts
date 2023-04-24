@@ -11,40 +11,40 @@ export class StaffComponent {
     {
       title: 'Beranda',
       icon: 'matHome',
-      route: '/',
+      route: '/staff',
     },
     {
       title: 'Pengisian Data',
       icon: 'matPeople',
-      route: '/staff-leave-form',
+      route: 'info',
     },
     {
       title: 'Cuti',
       icon: 'matPeople',
-      route: '#',
+      route: 'javascript:void(0)',
       children: [
         {
           title: 'Form Cuti',
-          route: '/employee-leave/confirmation',
+          route: 'staff-leave/form',
         },
         {
           title: 'Riwayat Pengajuan',
-          route: '/employee-leave/all',
+          route: 'staff-leave/history',
         },
       ],
     },
     {
       title: 'Izin',
       icon: 'matPeople',
-      route: '#',
+      route: 'javascript:void(0)',
       children: [
         {
           title: 'Form Izin',
-          route: '/employee-leave/confirmation',
+          route: 'staff-permit/form',
         },
         {
           title: 'Riwayat Pengajuan',
-          route: '/employee-leave/all',
+          route: 'staff-permit/history',
         },
       ],
     },

@@ -11,7 +11,7 @@ export class AdminComponent {
     {
       title: 'Beranda',
       icon: 'matHome',
-      route: '',
+      route: '/admin',
     },
     {
       title: 'Data Karyawan',
@@ -44,15 +44,15 @@ export class AdminComponent {
       children: [
         {
           title: 'Menunggu Persetujuan',
-          route: 'employee-leave/confirmation',
+          route: 'employee-permit/confirmation',
         },
         {
           title: 'Semua Data',
-          route: 'employee-leave/all',
+          route: 'employee-permit/all',
         },
         {
           title: 'Laporan',
-          route: 'employee-leave/report',
+          route: 'employee-permit/report',
         },
       ],
     },
