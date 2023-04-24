@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
@@ -34,7 +32,11 @@ import { StaffPermitFormComponent } from './staff/staff-permit-form/staff-permit
 import { StaffPermitHistoryComponent } from './staff/staff-permit-history/staff-permit-history.component';
 import { NgIconsModule } from '@ng-icons/core';
 
-import { matHome, matPeople, matSettings } from '@ng-icons/material-icons/baseline';
+import {
+  matHome,
+  matPeople,
+  matSettings,
+} from '@ng-icons/material-icons/baseline';
 
 @NgModule({
   declarations: [
