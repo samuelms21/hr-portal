@@ -24,6 +24,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 export class SidebarComponent {
   @Input() profilePictureUrl = '/assets/images/users/placeholder-user.jpg';
   @Input() sidebarItems: SidebarItem[] = [];
+
   toggleSubmenu(i: number) {
     this.sidebarItems[i].show = !this.sidebarItems[i].show;
   }

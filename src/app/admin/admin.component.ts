@@ -21,7 +21,7 @@ export class AdminComponent {
     {
       title: 'Data Cuti',
       icon: 'matPeople',
-      route: '#',
+      route: 'javascript:void(0)',
       children: [
         {
           title: 'Menunggu Persetujuan',
@@ -40,7 +40,7 @@ export class AdminComponent {
     {
       title: 'Data Izin',
       icon: 'matPeople',
-      route: '#',
+      route: 'javascript:void(0)',
       children: [
         {
           title: 'Menunggu Persetujuan',
@@ -59,7 +59,7 @@ export class AdminComponent {
     {
       title: 'Settings',
       icon: 'matSettings',
-      route: '#',
+      route: 'javascript:void(0)',
       children: [
         {
           title: 'Hari Libur',
