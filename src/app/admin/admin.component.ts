@@ -11,12 +11,12 @@ export class AdminComponent {
     {
       title: 'Beranda',
       icon: 'matHome',
-      route: '/',
+      route: '',
     },
     {
       title: 'Data Karyawan',
       icon: 'matPeople',
-      route: '/employee-data',
+      route: 'employee-data',
     },
     {
       title: 'Data Cuti',
@@ -25,15 +25,15 @@ export class AdminComponent {
       children: [
         {
           title: 'Menunggu Persetujuan',
-          route: '/employee-leave/confirmation',
+          route: 'employee-leave/confirmation',
         },
         {
           title: 'Semua Data',
-          route: '/employee-leave/all',
+          route: 'employee-leave/all',
         },
         {
           title: 'Laporan',
-          route: '/employee-leave/report',
+          route: 'employee-leave/report',
         },
       ],
     },
@@ -44,15 +44,15 @@ export class AdminComponent {
       children: [
         {
           title: 'Menunggu Persetujuan',
-          route: '/employee-leave/confirmation',
+          route: 'employee-leave/confirmation',
         },
         {
           title: 'Semua Data',
-          route: '/employee-leave/all',
+          route: 'employee-leave/all',
         },
         {
           title: 'Laporan',
-          route: '/employee-leave/report',
+          route: 'employee-leave/report',
         },
       ],
     },
@@ -63,15 +63,15 @@ export class AdminComponent {
       children: [
         {
           title: 'Hari Libur',
-          route: '/settings/holiday',
+          route: 'settings/holiday',
         },
         {
           title: 'Jumlah Cuti',
-          route: '/settings/leave-limit',
+          route: 'settings/leave-limit',
         },
         {
           title: 'Kategori Izin',
-          route: '/settings/permit-category',
+          route: 'settings/permit-category',
         },
       ],
     },

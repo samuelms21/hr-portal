@@ -7,7 +7,7 @@
     </div>
   </div>
   <ul>
-    <li *ngFor="let sidebarItem of sidebarItems">
+    <li *ngFor="let sidebarItem of sidebarItems; index as i" class="top-level" (click)="toggleSubmenu(i)">
       <a routerLink="{{ sidebarItem.route }}">
         <ng-icon name="{{ sidebarItem.icon }}"></ng-icon>
         {{ sidebarItem.title }}
@@ -16,7 +16,7 @@
           name="matKeyboardArrowDown"
         ></ng-icon>
       </a>
-      <ul *ngIf="sidebarItem.children">
+      <ul *ngIf="sidebarItem.children && sidebarItem.show" [@slideDownAnimation]>
         <li *ngFor="let child of sidebarItem.children">
           <a routerLink="{{ child.route }}">{{ child.title }}</a>
         </li>
