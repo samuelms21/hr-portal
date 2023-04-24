@@ -1,0 +1,41 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-container {
+  background-color: var(--primary-color);
+  padding: 4rem 2rem;
+  max-width: 496px;
+}
+.login-container > img {
+  min-height: 140px;
+  max-height: 140px;
+  display: block;
+  margin-inline: auto;
+}
+.login-container > h1 {
+  text-align: center;
+  font-size: 1rem;
+  color: white;
+  font-family: "gotham-bold";
+}
+form {
+  margin-top: 2rem;
+}
+.login-container > form > input,
+.login-container > form > input :hover {
+  display: block;
+  min-width: 100%;
+  margin: 1rem 0;
+}
+:host ::ng-deep .p-button {
+  display: block;
+  min-width: 100%;
+  font-family: "gotham-bold";
+}
+:host ::ng-deep .p-dropdown {
+  min-width: 100%;
+  margin-bottom: 2rem;
+}

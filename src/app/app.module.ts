@@ -3,7 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 
@@ -68,6 +70,8 @@ import { matHome, matPeople, matSettings } from '@ng-icons/material-icons/baseli
     InputTextModule,
     ButtonModule,
     NgIconsModule.withIcons({ matHome, matPeople, matSettings }),
+    ReactiveFormsModule,
+    DropdownModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
