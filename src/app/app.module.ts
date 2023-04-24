@@ -32,11 +32,7 @@ import { StaffPermitFormComponent } from './staff/staff-permit-form/staff-permit
 import { StaffPermitHistoryComponent } from './staff/staff-permit-history/staff-permit-history.component';
 import { NgIconsModule } from '@ng-icons/core';
 
-import {
-  matHome,
-  matPeople,
-  matSettings,
-} from '@ng-icons/material-icons/baseline';
+import { matHome, matPeople, matSettings, matKeyboardArrowDown } from '@ng-icons/material-icons/baseline';
 
 @NgModule({
   declarations: [
@@ -65,15 +61,15 @@ import {
   ],
   imports: [
     RouterModule,
+    ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     InputTextModule,
     ButtonModule,
-    NgIconsModule.withIcons({ matHome, matPeople, matSettings }),
-    ReactiveFormsModule,
     DropdownModule,
+    NgIconsModule.withIcons({ matHome, matPeople, matSettings, matKeyboardArrowDown }),
   ],
   providers: [],
   bootstrap: [AppComponent],

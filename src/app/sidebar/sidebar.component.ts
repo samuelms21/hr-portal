@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
   profilePictureUrl = 'https://picsum.photos/200/300';
+  isCutiOpen = false
+
+  toggleCuti(){
+    this.isCutiOpen = !this.isCutiOpen
+  }
+  isIzinOpen = false
+
+  toggleIzin(){
+    this.isIzinOpen = !this.isIzinOpen
+  }
 }
