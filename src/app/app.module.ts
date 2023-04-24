@@ -33,6 +33,8 @@ import { StaffPermitHistoryComponent } from './staff/staff-permit-history/staff-
 import { NgIconsModule } from '@ng-icons/core';
 
 import { matHome, matPeople, matSettings, matKeyboardArrowDown } from '@ng-icons/material-icons/baseline';
+import { EmployeeLeaveComponent } from './admin/employee-leave/employee-leave.component';
+import { SettingsComponent } from './admin/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import { matHome, matPeople, matSettings, matKeyboardArrowDown } from '@ng-icons
     StaffLeaveHistoryComponent,
     StaffPermitFormComponent,
     StaffPermitHistoryComponent,
+    EmployeeLeaveComponent,
+    SettingsComponent,
   ],
   imports: [
     RouterModule,

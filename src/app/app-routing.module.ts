@@ -18,6 +18,8 @@ import { StaffLeaveFormComponent } from './staff/staff-leave-form/staff-leave-fo
 import { StaffLeaveHistoryComponent } from './staff/staff-leave-history/staff-leave-history.component';
 import { StaffPermitFormComponent } from './staff/staff-permit-form/staff-permit-form.component';
 import { StaffPermitHistoryComponent } from './staff/staff-permit-history/staff-permit-history.component';
+import { EmployeeLeaveComponent } from './admin/employee-leave/employee-leave.component';
+import { SettingsComponent } from './admin/settings/settings.component';
 
 const routes: Routes = [
   {
@@ -42,28 +44,41 @@ const routes: Routes = [
         component: EmployeeDataComponent,
       },
       {
-        path: 'employee-leave-confirmation',
-        component: EmployeeLeaveConfirmationComponent,
+        path: 'employee-leave',
+        component: EmployeeLeaveComponent,
+        children: [
+          {
+            path: 'confirmation',
+            component: EmployeeLeaveConfirmationComponent,
+          },
+          {
+            path: 'all',
+            component: EmployeeLeaveAllComponent,
+          },
+          {
+            path: 'report',
+            component: EmployeeLeaveReportComponent,
+          },
+        ],
       },
+
       {
-        path: 'employee-leave-all',
-        component: EmployeeLeaveAllComponent,
-      },
-      {
-        path: 'employee-leave-report',
-        component: EmployeeLeaveReportComponent,
-      },
-      {
-        path: 'settings-holiday',
-        component: SettingsHolidayComponent,
-      },
-      {
-        path: 'settings-leave-limit',
-        component: SettingsLeaveLimitComponent,
-      },
-      {
-        path: 'settings-permit-category',
-        component: SettingsPermitCategoryComponent,
+        path: 'settings',
+        component: SettingsComponent,
+        children: [
+          {
+            path: 'holiday',
+            component: SettingsHolidayComponent,
+          },
+          {
+            path: 'leave-limit',
+            component: SettingsLeaveLimitComponent,
+          },
+          {
+            path: 'permit-category',
+            component: SettingsPermitCategoryComponent,
+          },
+        ],
       },
     ],
   },
