@@ -1,16 +1,46 @@
 <div class="sidebar">
   <div class="profile-section">
-    <img src="{{profilePictureUrl}}" alt="Profile Picture" />
+    <img src="{{ profilePictureUrl }}" alt="Profile Picture" />
     <div class="profile-info">
       <h2>John Doe</h2>
       <p>Administrator</p>
     </div>
   </div>
   <ul>
-    <li><a routerLink="/"><ng-icon name="matHome"></ng-icon>Beranda</a></li>
-    <li><a routerLink="/about"><ng-icon name="matPeople"></ng-icon>Data Karyawan</a></li>
-    <li><a routerLink="/contact"><ng-icon name="matPeople"></ng-icon>Data Cuti</a></li>
-    <li><a routerLink="/contact"><ng-icon name="matPeople"></ng-icon>Data Izin</a></li>
-    <li><a routerLink="/contact"><ng-icon name="matSettings"></ng-icon>Settings</a></li>
+    <li>
+      <a routerLink="/"><ng-icon name="matHome"></ng-icon>Beranda</a>
+    </li>
+    <li>
+      <a routerLink="/about"
+        ><ng-icon name="matPeople"></ng-icon>Data Karyawan</a
+      > 
+    </li>
+    <li>
+      <a href="#" (click)="toggleCuti()">
+        <ng-icon name="matPeople"></ng-icon>Data Cuti
+        <ng-icon name="matKeyboardArrowDown"></ng-icon>
+      </a>
+      <ul [ngClass]="{ show: isCutiOpen }">
+        <li><a routerLink="/contact">Cuti 1</a></li>
+        <li><a routerLink="/contact">Cuti 2</a></li>
+        <li><a routerLink="/contact">Cuti 3</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#" (click)="toggleIzin()">
+        <ng-icon name="matPeople"></ng-icon>Data Izin
+        <ng-icon name="matKeyboardArrowDown"></ng-icon>
+      </a>
+      <ul [ngClass]="{ show: isIzinOpen }">
+        <li><a routerLink="/contact">Izin 1</a></li>
+        <li><a routerLink="/contact">Izin 2</a></li>
+        <li><a routerLink="/contact">Izin 3</a></li>
+      </ul>
+    </li>
+    <li>
+      <a routerLink="/contact"
+        ><ng-icon name="matSettings"></ng-icon>Settings</a
+      >
+    </li>
   </ul>
 </div>
