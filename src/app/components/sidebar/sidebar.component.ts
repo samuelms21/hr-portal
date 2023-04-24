@@ -1,8 +1,8 @@
 import { Input } from '@angular/core';
 import { Component } from '@angular/core';
-import { SidebarItem } from '../models/sidebar-item';
 import { OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { SidebarItem } from 'src/app/models/sidebar-item';
 
 @Component({
   selector: 'app-sidebar',

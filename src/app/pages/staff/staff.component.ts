@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SidebarItem } from '../models/sidebar-item';
+import { SidebarItem } from 'src/app/models/sidebar-item';
 
 @Component({
   selector: 'app-staff',
