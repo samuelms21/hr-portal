@@ -24,6 +24,7 @@ import { SidebarItem } from 'src/app/models/sidebar-item';
 export class SidebarComponent {
   @Input() profilePictureUrl = '/assets/images/users/placeholder-user.jpg';
   @Input() sidebarItems: SidebarItem[] = [];
+  @Input() role = '';
 
   toggleSubmenu(i: number) {
     this.sidebarItems[i].show = !this.sidebarItems[i].show;

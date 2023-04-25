@@ -3,15 +3,17 @@
     <img src="{{ profilePictureUrl }}" alt="Profile Picture" />
     <div class="profile-info">
       <h2>John Doe</h2>
-      <p>Administrator</p>
+      <p>{{ role }}</p>
     </div>
   </div>
   <ul>
-    <li
-      *ngFor="let sidebarItem of sidebarItems; index as i"
-      class="top-level"
-    >
-      <a routerLinkActive="link-active" [routerLinkActiveOptions]="{exact: true}" routerLink="{{ sidebarItem.route }}" (click)="toggleSubmenu(i)">
+    <li *ngFor="let sidebarItem of sidebarItems; index as i" class="top-level">
+      <a
+        routerLinkActive="link-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLink="{{ sidebarItem.route }}"
+        (click)="toggleSubmenu(i)"
+      >
         <ng-icon name="{{ sidebarItem.icon }}"></ng-icon>
         {{ sidebarItem.title }}
         <ng-icon
@@ -24,7 +26,9 @@
         [@slideDownAnimation]
       >
         <li *ngFor="let child of sidebarItem.children">
-          <a routerLinkActive="link-active" routerLink="{{ child.route }}">{{ child.title }}</a>
+          <a routerLinkActive="link-active" routerLink="{{ child.route }}">{{
+            child.title
+          }}</a>
         </li>
       </ul>
     </li>

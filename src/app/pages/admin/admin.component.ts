@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SidebarItem } from 'src/app/models/sidebar-item';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css'],
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
   sidebarItems: SidebarItem[] = [
     {
       title: 'Beranda',
@@ -76,4 +77,11 @@ export class AdminComponent {
       ],
     },
   ];
+
+  role: string = '';
+
+  constructor(private auth: AuthService) {}
+  ngOnInit(): void {
+    this.role = this.auth.getUserRole();
+  }
 }

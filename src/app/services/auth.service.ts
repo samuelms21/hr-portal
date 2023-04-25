@@ -7,15 +7,13 @@ import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import jwtDecode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(
-    private cookieService: CookieService,
-    private http: HttpClient,
-  ) {}
+  constructor(private cookieService: CookieService, private http: HttpClient) {}
 
   login(email: string, password: string): Observable<Object> {
     const url = 'http://localhost:8000/api/login';
@@ -24,18 +22,28 @@ export class AuthService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       }),
-      withCredentials: true,
     };
     return this.http.post(url, body, options);
   }
 
   getUserRole(): string {
     const token = this.cookieService.get(environment.tokenName);
-    return ''
+    const decoded: {
+      role: string;
+    } = jwtDecode(token);
+    return decoded.role;
   }
 
   isLoggedIn(): boolean {
     const token = this.cookieService.get(environment.tokenName);
-    return false
+    return !!token;
+  }
+
+  getToken(): string {
+    return this.cookieService.get(environment.tokenName);
+  }
+
+  saveToken(newToken: string) {
+    this.cookieService.set(environment.tokenName, newToken);
   }
 }

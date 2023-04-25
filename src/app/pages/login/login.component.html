@@ -5,7 +5,7 @@
       alt="CIT Logo"
     />
     <h1>
-      Sistem Informasi Pengajuan Cuti dan Izin<br />Calvin Institute of
+      Sistem Informasi<br />Pengajuan Cuti dan Izin<br />Calvin Institute of
       Technology
     </h1>
     <form [formGroup]="loginForm" (ngSubmit)="login()">
@@ -21,11 +21,7 @@
         formControlName="password"
         placeholder="Password"
       />
-      <p-dropdown
-        formControlName="selectedRole"
-        [options]="roles"
-        placeholder="Login Sebagai"
-      ></p-dropdown>
+      <small *ngIf="errorMessage" [@shake]="errorMessage">{{errorMessage}}</small>  
       <p-button
         label="LOGIN"
         (click)="login()"

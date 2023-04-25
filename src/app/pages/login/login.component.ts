@@ -1,3 +1,11 @@
+import {
+  animate,
+  keyframes,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,9 +17,26 @@ import { environment } from 'src/environments/environment';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
+  animations: [
+    trigger('shake', [
+      transition('* => *', [
+        style({ marginLeft: '0px' }),
+        animate(
+          '1s ease-in-out',
+          keyframes([
+            style({ marginLeft: '25px' }),
+            style({ marginLeft: '0px' }),
+            style({ marginLeft: '25px' }),
+            style({ marginLeft: '0px' }),
+          ])
+        ),
+      ]),
+    ]),
+  ],
 })
 export class LoginComponent {
   roles: string[] = ['Admin', 'Staff'];
+  errorMessage: string = '';
 
   constructor(
     private auth: AuthService,
@@ -22,21 +47,22 @@ export class LoginComponent {
   loginForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
-    selectedRole: new FormControl('', Validators.required),
   });
 
   login(): void {
-    console.log(this.loginForm);
     if (this.loginForm.value.username && this.loginForm.value.password) {
       this.auth
         .login(this.loginForm.value.username, this.loginForm.value.password)
         .subscribe({
-          next: (value) => {
-            console.log(this.cookieService.get('jwt'));
+          next: (value: any) => {
+            this.auth.saveToken(value.token);
             this.router.navigateByUrl('/admin');
           },
           error: (err) => {
-            console.error(err);
+            this.errorMessage = '';
+            setTimeout(() => {
+              this.errorMessage = err.error.message;
+            }, 1000);
           },
         });
     }
