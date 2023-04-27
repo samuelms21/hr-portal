@@ -1,0 +1,36 @@
+<div class="sidebar">
+  <div class="profile-section">
+    <img src="{{ profilePictureUrl }}" alt="Profile Picture" />
+    <div class="profile-info">
+      <h2>John Doe</h2>
+      <p>{{ role }}</p>
+    </div>
+  </div>
+  <ul>
+    <li *ngFor="let sidebarItem of sidebarItems; index as i" class="top-level">
+      <a
+        routerLinkActive="link-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLink="{{ sidebarItem.route }}"
+        (click)="toggleSubmenu(i)"
+      >
+        <ng-icon name="{{ sidebarItem.icon }}"></ng-icon>
+        {{ sidebarItem.title }}
+        <ng-icon
+          *ngIf="sidebarItem.children"
+          name="matKeyboardArrowDown"
+        ></ng-icon>
+      </a>
+      <ul
+        *ngIf="sidebarItem.children && sidebarItem.show"
+        [@slideDownAnimation]
+      >
+        <li *ngFor="let child of sidebarItem.children">
+          <a routerLinkActive="link-active" routerLink="{{ child.route }}">{{
+            child.title
+          }}</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

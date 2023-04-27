@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="login-container">
+    <img
+      src="./assets/images/cit-logo/cit-logo-square-compact-white.png"
+      alt="CIT Logo"
+    />
+    <h1>
+      Sistem Informasi<br />Pengajuan Cuti dan Izin<br />Calvin Institute of
+      Technology
+    </h1>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <input
+        type="text"
+        pInputText
+        formControlName="username"
+        placeholder="Username"
+      />
+      <input
+        type="password"
+        pInputText
+        formControlName="password"
+        placeholder="Password"
+      />
+      <small *ngIf="errorMessage" [@shake]="errorMessage">{{errorMessage}}</small>  
+      <p-button
+        label="LOGIN"
+        (click)="login()"
+        id="login-btn"
+        styleClass="p-button-warning"
+      ></p-button>
+    </form>
+  </div>
+</div>
