@@ -48,6 +48,7 @@ import { ButtonModule } from 'primeng/button';
 import { CookieService } from 'ngx-cookie-service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { AuthInterceptor } from './services/auth.interceptor';
   ],
   imports: [
     RouterModule,
+    FormsModule,
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
@@ -98,6 +100,7 @@ import { AuthInterceptor } from './services/auth.interceptor';
       matKeyboardArrowDown,
     }),
     HttpClientModule,
+    TableModule,
   ],
   providers: [
     CookieService,
