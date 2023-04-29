@@ -38,7 +38,6 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.getUserInfo().subscribe((user) => {
-      console.log('user', user);
       this.user = user;
     });
   }
@@ -48,6 +47,7 @@ export class SidebarComponent implements OnInit {
   }
 
   logout() {
+    console.log("LOGGING OUT")
     this.auth.logout();
     this.route.navigateByUrl('/login');
   }

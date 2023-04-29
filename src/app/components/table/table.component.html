@@ -1,0 +1,22 @@
+<p-table [value]="datas" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>No Cuti</th>
+            <th>Nama Pemohon</th>
+            <th>Tanggal Pengajuan</th>
+            <th>Tanggal Awal</th>
+            <th>Tanggal Akhir</th>
+            <th>Aksi</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-data>
+        <tr>
+            <td>{{ data.noCuti }}</td>
+            <td>{{ data.nama }}</td>
+            <td>{{ data.tanggalPengajuan }}</td>
+            <td>{{ data.tanggalAwal }}</td>
+            <td>{{ data.tanggalAkhir }}</td>
+            <td><button>Approve</button><button>Reject</button></td>
+        </tr>
+    </ng-template>
+</p-table>

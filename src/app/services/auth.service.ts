@@ -62,7 +62,6 @@ export class AuthService {
   currentUserId(): number {
     const token = this.getToken();
     const jwt: { id: number; exp: number; iat: number } = jwtDecode(token);
-    console.log('id', jwt.id);
     return jwt.id;
   }
 
