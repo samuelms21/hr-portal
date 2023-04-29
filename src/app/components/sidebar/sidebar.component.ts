@@ -5,6 +5,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { SidebarItem } from 'src/app/models/sidebar-item.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-sidebar',
@@ -23,20 +24,31 @@ import { Router } from '@angular/router';
     ]),
   ],
 })
-export class SidebarComponent {
-  @Input() profilePictureUrl = '/assets/images/users/placeholder-user.jpg';
+export class SidebarComponent implements OnInit {
   @Input() sidebarItems: SidebarItem[] = [];
-  @Input() role = '';
 
   auth = inject(AuthService);
-  route = inject(Router)
+  route = inject(Router);
+
+  user: User = {
+    display_name: '',
+    division: '',
+    photo: '/assets/images/users/placeholder-user.jpg',
+  };
+
+  ngOnInit(): void {
+    this.auth.getUserInfo().subscribe((user) => {
+      console.log('user', user);
+      this.user = user;
+    });
+  }
 
   toggleSubmenu(i: number) {
     this.sidebarItems[i].show = !this.sidebarItems[i].show;
   }
 
-  logout(){
-    this.auth.logout()
-    this.route.navigateByUrl('/login')
+  logout() {
+    this.auth.logout();
+    this.route.navigateByUrl('/login');
   }
 }

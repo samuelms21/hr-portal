@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 import jwtDecode from 'jwt-decode';
 import { CanActivateFn } from '@angular/router';
 import { LoginResponse } from '../models/login-response.model';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -56,5 +57,18 @@ export class AuthService {
 
   removeToken() {
     this.cookieService.delete(environment.tokenName);
+  }
+
+  currentUserId(): number {
+    const token = this.getToken();
+    const jwt: { id: number; exp: number; iat: number } = jwtDecode(token);
+    console.log('id', jwt.id);
+    return jwt.id;
+  }
+
+  getUserInfo(): Observable<User> {
+    const id = this.currentUserId();
+    const url = environment.usersApi + '/' + id;
+    return this.http.get<User>(url);
   }
 }
