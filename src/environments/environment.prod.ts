@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'http://localhost:8000/api',
+  baseUrl: 'http://localhost:8000/api',
   tokenName: 'token',
 };

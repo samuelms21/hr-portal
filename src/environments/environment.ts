@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:8000/api',
+  usersApi: 'https://apistafftest.calvintech.net/api/v1/users',
   tokenName: 'token',
 };

@@ -12,8 +12,8 @@
       <input
         type="text"
         pInputText
-        formControlName="username"
-        placeholder="Username"
+        formControlName="email"
+        placeholder="Email"
       />
       <input
         type="password"
@@ -21,7 +21,7 @@
         formControlName="password"
         placeholder="Password"
       />
-      <small *ngIf="errorMessage" [@shake]="errorMessage">{{errorMessage}}</small>  
+      <small #smallMessage *ngIf="errorMessage">{{ errorMessage }}</small>
       <p-button
         label="LOGIN"
         (click)="login()"

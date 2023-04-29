@@ -5,7 +5,7 @@
   bottom: 0;
   width: 320px;
   background-color: #800507;
-  overflow-x: hidden;
+  overflow: hidden;
   font-family: "Gotham", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .profile-section {
@@ -35,6 +35,7 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  overflow: auto;
 }
 li {
   margin-bottom: 10px;
@@ -50,7 +51,7 @@ ng-icon[name="matKeyboardArrowDown"] {
   margin-right: 0;
 }
 
-a {
+ul li a {
   font-size: 20px;
   color: white;
   display: flex;
@@ -60,7 +61,7 @@ a {
   font-weight: 600;
 }
 
-a:hover {
+ul li a:hover {
   background-color: red;
 }
 
@@ -69,7 +70,7 @@ ul li ul li a {
   font-weight: 400;
 }
 
-.link-active {
+ul li .link-active {
   background-color: white;
   color: black;
 }
@@ -77,4 +78,19 @@ ul li ul li a {
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent; /* make scrollbar transparent */
+}
+
+.logout {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: flex-end;
+  padding: 14px 10px;
+  color: white;
+}
+.logout a {
+  cursor: pointer;
 }

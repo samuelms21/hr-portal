@@ -6,10 +6,18 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { LoginResponse } from 'src/app/models/login-response.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
 
@@ -17,54 +25,40 @@ import { environment } from 'src/environments/environment';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  animations: [
-    trigger('shake', [
-      transition('* => *', [
-        style({ marginLeft: '0px' }),
-        animate(
-          '1s ease-in-out',
-          keyframes([
-            style({ marginLeft: '25px' }),
-            style({ marginLeft: '0px' }),
-            style({ marginLeft: '25px' }),
-            style({ marginLeft: '0px' }),
-          ])
-        ),
-      ]),
-    ]),
-  ],
 })
 export class LoginComponent {
-  roles: string[] = ['Admin', 'Staff'];
+  auth = inject(AuthService);
+  cookieService = inject(CookieService);
+  router = inject(Router);
+
+  @ViewChild('smallMessage') smallMessageRef: ElementRef;
+
   errorMessage: string = '';
 
-  constructor(
-    private auth: AuthService,
-    private cookieService: CookieService,
-    private router: Router
-  ) {}
-
   loginForm = new FormGroup({
-    username: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
 
   login(): void {
-    if (this.loginForm.value.username && this.loginForm.value.password) {
-      this.auth
-        .login(this.loginForm.value.username, this.loginForm.value.password)
-        .subscribe({
-          next: (value: any) => {
-            this.auth.saveToken(value.token);
-            this.router.navigateByUrl('/admin');
-          },
-          error: (err) => {
-            this.errorMessage = '';
-            setTimeout(() => {
-              this.errorMessage = err.error.message;
-            }, 1000);
-          },
-        });
+    const { email, password } = this.loginForm.value;
+    if (!email) {
+      this.errorMessage = 'Please supply email!';
+      return;
     }
+    if (!password) {
+      this.errorMessage = 'Please supply password!';
+      return;
+    }
+
+    this.auth.login(email, password).subscribe({
+      next: (value: LoginResponse) => {
+        this.auth.saveToken(value.accesstoken);
+        this.router.navigateByUrl('/admin');
+      },
+      error: (err: HttpErrorResponse) => {
+        this.errorMessage = err.error.detail;
+      },
+    });
   }
 }

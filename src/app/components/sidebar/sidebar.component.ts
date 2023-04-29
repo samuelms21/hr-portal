@@ -1,8 +1,10 @@
-import { Input } from '@angular/core';
+import { Input, inject } from '@angular/core';
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
-import { SidebarItem } from 'src/app/models/sidebar-item';
+import { SidebarItem } from 'src/app/models/sidebar-item.model';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -26,7 +28,15 @@ export class SidebarComponent {
   @Input() sidebarItems: SidebarItem[] = [];
   @Input() role = '';
 
+  auth = inject(AuthService);
+  route = inject(Router)
+
   toggleSubmenu(i: number) {
     this.sidebarItems[i].show = !this.sidebarItems[i].show;
+  }
+
+  logout(){
+    this.auth.logout()
+    this.route.navigateByUrl('/login')
   }
 }

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { AdminComponent } from './pages/admin/admin.component';
@@ -25,6 +25,7 @@ import { StaffLeaveHistoryComponent } from './pages/staff/staff-leave/staff-leav
 import { StaffPermitComponent } from './pages/staff/staff-permit/staff-permit.component';
 import { StaffPermitFormComponent } from './pages/staff/staff-permit/staff-permit-form/staff-permit-form.component';
 import { StaffPermitHistoryComponent } from './pages/staff/staff-permit/staff-permit-history/staff-permit-history.component';
+import { isLoggedInGuard, noLoginIfAuthenticatedGuard } from './services/auth.guard';
 
 const routes: Routes = [
   // {
@@ -35,10 +36,12 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [noLoginIfAuthenticatedGuard],
   },
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [isLoggedInGuard],
     children: [
       {
         path: '',
@@ -108,6 +111,7 @@ const routes: Routes = [
   {
     path: 'staff',
     component: StaffComponent,
+    canActivate: [isLoggedInGuard],
     children: [
       {
         path: '',
