@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SidebarItem } from 'src/app/models/sidebar-item';
+import { SidebarItem } from 'src/app/models/sidebar-item.model';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({

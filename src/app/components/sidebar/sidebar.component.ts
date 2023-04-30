@@ -1,8 +1,11 @@
-import { Input } from '@angular/core';
+import { Input, inject } from '@angular/core';
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
-import { SidebarItem } from 'src/app/models/sidebar-item';
+import { SidebarItem } from 'src/app/models/sidebar-item.model';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-sidebar',
@@ -21,12 +24,31 @@ import { SidebarItem } from 'src/app/models/sidebar-item';
     ]),
   ],
 })
-export class SidebarComponent {
-  @Input() profilePictureUrl = '/assets/images/users/placeholder-user.jpg';
+export class SidebarComponent implements OnInit {
   @Input() sidebarItems: SidebarItem[] = [];
-  @Input() role = '';
+
+  auth = inject(AuthService);
+  route = inject(Router);
+
+  user: User = {
+    display_name: '',
+    division: '',
+    photo: '/assets/images/users/placeholder-user.jpg',
+  };
+
+  ngOnInit(): void {
+    this.auth.getUserInfo().subscribe((user) => {
+      this.user = user;
+    });
+  }
 
   toggleSubmenu(i: number) {
     this.sidebarItems[i].show = !this.sidebarItems[i].show;
+  }
+
+  logout() {
+    console.log("LOGGING OUT")
+    this.auth.logout();
+    this.route.navigateByUrl('/login');
   }
 }

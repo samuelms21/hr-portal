@@ -41,11 +41,14 @@ import {
   matPeople,
   matSettings,
   matKeyboardArrowDown,
+  matLogout,
 } from '@ng-icons/material-icons/baseline';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { CookieService } from 'ngx-cookie-service';
+import { authInterceptorProviders } from './services/auth.interceptor';
+import { TableComponent } from './components/table/table.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { TableModule } from 'primeng/table';
@@ -82,6 +85,7 @@ import { TableModule } from 'primeng/table';
     StaffLeaveComponent,
     StaffPermitComponent,
     LoginComponent,
+    TableComponent,
   ],
   imports: [
     RouterModule,
@@ -98,14 +102,12 @@ import { TableModule } from 'primeng/table';
       matPeople,
       matSettings,
       matKeyboardArrowDown,
+      matLogout,
     }),
     HttpClientModule,
     TableModule,
   ],
-  providers: [
-    CookieService,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-  ],
+  providers: [CookieService, authInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {

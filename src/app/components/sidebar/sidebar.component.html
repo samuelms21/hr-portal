@@ -1,9 +1,9 @@
 <div class="sidebar">
   <div class="profile-section">
-    <img src="{{ profilePictureUrl }}" alt="Profile Picture" />
+    <img style="object-fit: cover" src="{{ user.photo }}" alt="Profile Picture" />
     <div class="profile-info">
-      <h2>John Doe</h2>
-      <p>{{ role }}</p>
+      <h3>{{ user["display_name"] }}</h3>
+      <p>{{ user.division }}</p>
     </div>
   </div>
   <ul>
@@ -33,4 +33,9 @@
       </ul>
     </li>
   </ul>
+  <div class="logout">
+    <a (click)="logout()">
+      <ng-icon name="matLogout"></ng-icon>
+    </a>
+  </div>
 </div>
