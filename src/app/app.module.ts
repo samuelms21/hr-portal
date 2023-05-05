@@ -49,9 +49,8 @@ import { ButtonModule } from 'primeng/button';
 import { CookieService } from 'ngx-cookie-service';
 import { authInterceptorProviders } from './services/auth.interceptor';
 import { TableComponent } from './components/table/table.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from './services/auth.interceptor';
 import { TableModule } from 'primeng/table';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -106,6 +105,7 @@ import { TableModule } from 'primeng/table';
     }),
     HttpClientModule,
     TableModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [CookieService, authInterceptorProviders],
   bootstrap: [AppComponent],
