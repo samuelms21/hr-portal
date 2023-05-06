@@ -62,7 +62,8 @@ ul li a {
 }
 
 ul li a:hover {
-  background-color: red;
+  background-color: var(--secondary-color);
+  color: white;
 }
 
 ul li ul li a {

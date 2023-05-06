@@ -30,3 +30,6 @@ td {
   width: 49.5%;
   padding: 0.55rem;
 }
+td.flex-container {
+  align-items: center;
+}
