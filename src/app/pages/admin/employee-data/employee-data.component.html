@@ -76,7 +76,11 @@
           <td>{{ employee.division }}</td>
           <td>{{ employee.level }}</td>
           <td class="flex-container">
-            <p-button styleClass="p-button-info" label="Detail"></p-button>
+            <p-button
+              styleClass="p-button-info"
+              label="Detail"
+              (onClick)="showEmployeeDetail(employee.nip)"
+            ></p-button>
             <p-button
               styleClass="p-button-warning"
               icon="pi pi-pencil"
@@ -90,4 +94,8 @@
       </ng-template>
     </p-table>
   </div>
+  <app-employee-detail
+    [visible]="showEmpDetailModal"
+    [employeeDetail]="currentEmployeeDetail"
+  ></app-employee-detail>
 </div>

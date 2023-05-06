@@ -12,6 +12,10 @@ import { DataService } from 'src/app/services/data.service';
 export class EmployeeDataComponent implements OnInit {
   employeeData: Employee[] = [];
   selectedEmployees: Employee | undefined;
+
+  currentEmployeeDetail: Employee | undefined;
+  showEmpDetailModal: boolean = false;
+
   @ViewChild('dt1') dt1: Table | undefined;
 
   constructor(private dataService: DataService) {}
@@ -20,11 +24,28 @@ export class EmployeeDataComponent implements OnInit {
     this.getAllEmployeeData();
   }
 
+  showEmployeeDetail(nip: string) {
+    let employee = this.employeeData.find((emp) => {
+      return emp.nip === nip;
+    });
+    if (employee !== undefined) {
+      this.currentEmployeeDetail = employee;
+      this.showEmpDetailModal = true;
+      console.log(this.currentEmployeeDetail);
+      console.log(this.showEmpDetailModal);
+    }
+  }
+
+  closeModal() {
+    this.showEmpDetailModal = false;
+    console.log(`Closing EmpDetail Modal: ${this.showEmpDetailModal}`);
+  }
+
   getAllEmployeeData() {
     this.dataService.getAllEmployeeData().subscribe({
       next: (response) => {
         this.employeeData = response;
-        console.log(this.employeeData);
+        // console.log(this.employeeData);
       },
       error: (error: HttpErrorResponse) => {
         console.log(error.status);

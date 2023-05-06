@@ -19,6 +19,7 @@ export class AuthService {
   constructor(private cookieService: CookieService, private http: HttpClient) {}
 
   login(email: string, password: string): Observable<LoginResponse> {
+    this.removeToken();
     const url = environment.usersApi + '/login';
     const body = new FormData();
     body.append('email', email);

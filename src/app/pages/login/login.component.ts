@@ -40,7 +40,6 @@ export class LoginComponent {
       next: (value: LoginResponse) => {
         // In case token is expired, user logged-out automatically
         // the token needs to be removed in order to be replaced
-        this.auth.logout();
         this.auth.saveToken(value.accesstoken);
         this.router.navigateByUrl('/admin');
       },

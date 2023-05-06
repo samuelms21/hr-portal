@@ -1,0 +1,16 @@
+<p-dialog
+  header="Header"
+  [modal]="true"
+  style="width: 58.5%"
+  [draggable]="false"
+  [resizable]="false"
+  [(visible)]="visible"
+>
+  <ng-template pTemplate="header">
+    <h3>Employee Detail</h3>
+  </ng-template>
+  <p class="m-0">
+    NIP: {{ employeeDetail?.nip }}<br />
+    Full Name: {{ employeeDetail?.display_name }}
+  </p>
+</p-dialog>

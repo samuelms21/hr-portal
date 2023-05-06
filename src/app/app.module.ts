@@ -36,6 +36,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgIconsModule } from '@ng-icons/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogModule } from 'primeng/dialog';
 import {
   matHome,
   matPeople,
@@ -106,6 +107,7 @@ import { StoreModule } from '@ngrx/store';
     HttpClientModule,
     TableModule,
     StoreModule.forRoot({}, {}),
+    DialogModule,
   ],
   providers: [CookieService, authInterceptorProviders],
   bootstrap: [AppComponent],
