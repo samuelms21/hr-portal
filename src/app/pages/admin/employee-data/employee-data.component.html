@@ -97,5 +97,6 @@
   <app-employee-detail
     [visible]="showEmpDetailModal"
     [employeeDetail]="currentEmployeeDetail"
+    (modalClose)="closeModal($event)"
   ></app-employee-detail>
 </div>

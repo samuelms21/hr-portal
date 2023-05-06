@@ -1,16 +1,72 @@
 <p-dialog
   header="Header"
   [modal]="true"
-  style="width: 58.5%"
   [draggable]="false"
   [resizable]="false"
   [(visible)]="visible"
+  (onHide)="resetModal()"
 >
   <ng-template pTemplate="header">
-    <h3>Employee Detail</h3>
+    <h2 style="color: var(--primary-color)">Detail Karyawan</h2>
   </ng-template>
-  <p class="m-0">
-    NIP: {{ employeeDetail?.nip }}<br />
-    Full Name: {{ employeeDetail?.display_name }}
-  </p>
+  <div class="flex-container emp-detail-top">
+    <div class="flex-container emp-detail-headers" style="margin-right: 2rem">
+      <img
+        [src]="employeeDetail?.photo"
+        [alt]="employeeDetail?.display_name"
+        class="employee-photo"
+        style="margin-right: 1rem"
+      />
+      <div>
+        <h3 style="font-weight: 600">{{ employeeDetail?.display_name }}</h3>
+        <p>NIP: {{ employeeDetail?.nip }}</p>
+      </div>
+    </div>
+    <div class="employment-duration">
+      <p>
+        Tgl. Masuk :
+        {{
+          employeeDetail?.start_date ? employeeDetail?.start_date : "02/02/2020"
+        }}
+      </p>
+      <p>
+        Tgl. Keluar:
+        {{ employeeDetail?.resign_date ? employeeDetail?.resign_date : "-" }}
+      </p>
+    </div>
+  </div>
+  <table>
+    <tr>
+      <td class="emp-detail-desc">Jenis Kelamin</td>
+      <td>: {{ employeeDetail?.gender }}</td>
+    </tr>
+    <tr>
+      <td class="emp-detail-desc">Email</td>
+      <td>: {{ employeeDetail?.email }}</td>
+    </tr>
+    <tr>
+      <td class="emp-detail-desc">No. Telepon</td>
+      <td>: {{ employeeDetail?.phone }}</td>
+    </tr>
+    <tr>
+      <td class="emp-detail-desc">Kontak Darurat</td>
+      <td>
+        : {{ employeeDetail?.emergency_contact }} -
+        {{ employeeDetail?.emergency_number }}
+      </td>
+    </tr>
+    <tr>
+      <td class="emp-detail-desc">Divisi</td>
+      <td>: {{ employeeDetail?.division }}</td>
+    </tr>
+    <tr>
+      <td class="emp-detail-desc">Jabatan</td>
+      <td>
+        :
+        {{
+          employeeDetail?.position ? employeeDetail?.position : "Employee/Staff"
+        }}
+      </td>
+    </tr>
+  </table>
 </p-dialog>

@@ -1,0 +1,32 @@
+.flex-container {
+  display: flex;
+}
+.employee-photo {
+  max-width: 6.25rem;
+  min-width: 6.25rem;
+  max-height: 6.25rem;
+  min-height: 6.25rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+.emp-detail-headers,
+.emp-detail-top {
+  justify-content: flex-start;
+  align-items: center;
+}
+.emp-detail-headers,
+.employment-duration {
+  min-width: 50%;
+}
+.emp-detail-desc {
+  font-weight: 600;
+}
+table {
+  margin: 1.25rem 0;
+  min-width: 100%;
+  border-collapse: collapse;
+}
+td {
+  width: 49.5%;
+  padding: 0.55rem;
+}

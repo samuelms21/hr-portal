@@ -36,9 +36,11 @@ export class EmployeeDataComponent implements OnInit {
     }
   }
 
-  closeModal() {
-    this.showEmpDetailModal = false;
-    console.log(`Closing EmpDetail Modal: ${this.showEmpDetailModal}`);
+  closeModal(event: String) {
+    if (event === 'reset-modal') {
+      this.showEmpDetailModal = false;
+      return;
+    }
   }
 
   getAllEmployeeData() {
