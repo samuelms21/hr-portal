@@ -1,25 +1,10 @@
-import {
-  animate,
-  keyframes,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
 import { HttpErrorResponse } from '@angular/common/http';
-import {
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-  inject,
-} from '@angular/core';
+import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginResponse } from 'src/app/models/login-response.model';
 import { AuthService } from 'src/app/services/auth.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -53,6 +38,9 @@ export class LoginComponent {
 
     this.auth.login(email, password).subscribe({
       next: (value: LoginResponse) => {
+        // In case token is expired, user logged-out automatically
+        // the token needs to be removed in order to be replaced
+        this.auth.logout();
         this.auth.saveToken(value.accesstoken);
         this.router.navigateByUrl('/admin');
       },
