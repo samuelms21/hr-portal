@@ -68,5 +68,81 @@
         }}
       </td>
     </tr>
+    <tr>
+      <td class="emp-detail-desc">Level</td>
+      <td>
+        :
+        {{ employeeDetail?.level }}
+      </td>
+    </tr>
+    <tr>
+      <td class="emp-detail-desc">Alamat</td>
+      <td>
+        :
+        {{ employeeDetail?.address }}
+      </td>
+    </tr>
+    <tr>
+      <td class="emp-detail-desc">Jumlah Cuti</td>
+      <!-- TO BE UPDATED LATER ON -->
+      <td>: 10</td>
+    </tr>
+    <tr>
+      <td class="emp-detail-desc">Status</td>
+      <!-- TO BE UPDATED SOON -->
+      <td>:Aktif</td>
+    </tr>
+    <tr>
+      <td class="emp-detail-desc">Agama</td>
+      <td>
+        :
+        {{ employeeDetail?.religion ? employeeDetail?.religion : "Kristen" }}
+      </td>
+    </tr>
+    <tr>
+      <td class="emp-detail-desc">Agama</td>
+      <td>
+        :
+        {{
+          employeeDetail?.blood_type ? employeeDetail?.blood_type : "A/B/AB/O"
+        }}
+      </td>
+    </tr>
+    <tr>
+      <td class="emp-detail-desc">Agama</td>
+      <td>
+        :
+        {{
+          employeeDetail?.marriage_status
+            ? employeeDetail?.marriage_status
+            : "Unknown"
+        }}
+      </td>
+    </tr>
+    <tr>
+      <td class="emp-detail-desc">No. KTP</td>
+      <td>
+        :
+        {{ employeeDetail?.ktp ? employeeDetail?.ktp : "KTP Number Here" }}
+      </td>
+    </tr>
+    <tr>
+      <td class="emp-detail-desc">No. SIM</td>
+      <td>
+        :
+        {{
+          employeeDetail?.sim_number
+            ? employeeDetail?.sim_number
+            : "SIM Number Here"
+        }}
+      </td>
+    </tr>
+    <tr>
+      <td class="emp-detail-desc">No. KK</td>
+      <td>
+        :
+        {{ employeeDetail?.kk ? employeeDetail?.kk : "KK Number Here" }}
+      </td>
+    </tr>
   </table>
 </p-dialog>
