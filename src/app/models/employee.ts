@@ -1,4 +1,5 @@
 export interface Employee {
+  id: number;
   photo: string | null;
   nip: string | null;
   first_name: string | null;

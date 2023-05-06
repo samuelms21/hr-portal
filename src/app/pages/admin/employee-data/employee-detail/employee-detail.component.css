@@ -26,10 +26,48 @@ table {
   min-width: 100%;
   border-collapse: collapse;
 }
-td {
-  width: 49.5%;
+td,
+td.emp-detail-desc {
   padding: 0.55rem;
+}
+td.emp-detail-desc {
+  width: 35%;
 }
 td.flex-container {
   align-items: center;
 }
+a.preview-link {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-left: 0.25rem;
+  text-decoration: none;
+}
+a.preview-link:hover,
+a.preview-link:active {
+  text-decoration: underline;
+}
+a.preview-link:visited {
+  color: var(--primary-color);
+}
+table.education-table {
+  border-collapse: initial;
+}
+table.education-table > thead > tr > th {
+  padding: 1rem 0.5rem;
+  color: white;
+  background-color: var(--primary-color);
+  border-radius: 0.25rem;
+}
+table.education-table > tbody > tr > td {
+  border-bottom: 1px var(--surface-300) solid;
+}
+td.date-table,
+th.date-table {
+  width: 10%;
+}
+td.education-action {
+  justify-content: space-between;
+}
+/* table.education-table > thead > tr > th {
+  padding: ;
+} */

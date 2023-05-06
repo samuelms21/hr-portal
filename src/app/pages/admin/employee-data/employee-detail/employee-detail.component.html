@@ -90,7 +90,7 @@
     <tr>
       <td class="emp-detail-desc">Status</td>
       <!-- TO BE UPDATED SOON -->
-      <td>:Aktif</td>
+      <td>: Aktif</td>
     </tr>
     <tr>
       <td class="emp-detail-desc">Agama</td>
@@ -148,22 +148,55 @@
       <td class="emp-detail-desc">Scan KTP</td>
       <td class="flex-container">
         <!-- TO BE UPDATED SOON -->
-        : <p-button label="Preview" styleClass="p-button-link"></p-button>
+        : <a href="#" target="_blank" class="preview-link">Preview</a>
       </td>
     </tr>
     <tr>
       <td class="emp-detail-desc">Scan KK</td>
       <td class="flex-container">
         <!-- TO BE UPDATED SOON -->
-        : <p-button label="Preview" styleClass="p-button-link"></p-button>
+        : <a href="#" target="_blank" class="preview-link">Preview</a>
       </td>
     </tr>
     <tr>
       <td class="emp-detail-desc">NPWP</td>
       <td class="flex-container">
         <!-- TO BE UPDATED SOON -->
-        : <p-button label="Preview" styleClass="p-button-link"></p-button>
+        : <a href="#" target="_blank" class="preview-link">Preview</a>
       </td>
     </tr>
   </table>
+  <div class="education-table-container">
+    <h4>Riwayat Pendidikan</h4>
+    <table class="education-table">
+      <thead>
+        <tr>
+          <th>Jenjang</th>
+          <th>Nama Sekolah</th>
+          <th>Jurusan</th>
+          <th class="date-table">Tanggal Mulai</th>
+          <th class="date-table">Tanggal Kelulusan</th>
+          <th>Bukti Kelulusan</th>
+          <th>Keterangan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let education of educationBackground">
+          <td>{{ education.jenjang }}</td>
+          <td>{{ education.nama_sekolah }}</td>
+          <td>{{ education.jurusan }}</td>
+          <td class="date-table">{{ education.tanggal_mulai }}</td>
+          <td class="date-table">{{ education.tanggal_kelulusan }}</td>
+          <td class="education-action flex-container">
+            <p-button styleClass="p-button-warning" label="Preview"></p-button>
+            <p-button
+              styleClass="p-button-danger"
+              icon="pi pi-download"
+            ></p-button>
+          </td>
+          <td>{{ education.keterangan }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </p-dialog>

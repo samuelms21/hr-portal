@@ -16,6 +16,8 @@ export class EmployeeDataComponent implements OnInit {
   currentEmployeeDetail: Employee | undefined;
   showEmpDetailModal: boolean = false;
 
+  datatableSize: string = 'p-datatable-sm';
+
   @ViewChild('dt1') dt1: Table | undefined;
 
   constructor(private dataService: DataService) {}
