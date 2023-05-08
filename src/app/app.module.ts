@@ -52,6 +52,7 @@ import { authInterceptorProviders } from './services/auth.interceptor';
 import { TableComponent } from './components/table/table.component';
 import { TableModule } from 'primeng/table';
 import { StoreModule } from '@ngrx/store';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -108,6 +109,7 @@ import { StoreModule } from '@ngrx/store';
     TableModule,
     StoreModule.forRoot({}, {}),
     DialogModule,
+    CalendarModule,
   ],
   providers: [CookieService, authInterceptorProviders],
   bootstrap: [AppComponent],

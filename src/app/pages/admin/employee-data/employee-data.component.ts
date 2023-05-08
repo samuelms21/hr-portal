@@ -16,6 +16,8 @@ export class EmployeeDataComponent implements OnInit {
   currentEmployeeDetail: Employee | undefined;
   showEmpDetailModal: boolean = false;
 
+  showAddEditEmpDataPage: boolean = false;
+
   datatableSize: string = 'p-datatable-sm';
 
   @ViewChild('dt1') dt1: Table | undefined;
@@ -56,6 +58,11 @@ export class EmployeeDataComponent implements OnInit {
         console.log(error.message);
       },
     });
+  }
+
+  addEmployee() {
+    console.log('Adding new employee');
+    this.showAddEditEmpDataPage = true;
   }
 
   applyFilterGlobal(event: Event, stringVal: any) {

@@ -1,0 +1,17 @@
+h1 {
+  font-family: Gotham;
+  color: var(--primary-color);
+  text-align: center;
+  margin-top: 2rem;
+}
+.container {
+  padding: 1.5rem;
+  background-color: var(--surface-300);
+}
+.flex-container {
+  display: flex;
+}
+.header {
+  justify-content: space-between;
+  align-items: center;
+}

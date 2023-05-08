@@ -59,6 +59,8 @@ export class DataService {
     return this.http.get<Employee[]>(this.requestEndpoint, this.httpOptions);
   }
 
+  // getEmployeeLeaveData(user_id: number): Observable<{}> {}
+
   testGetCookie(): void {
     console.log('From Data service:');
     console.log(this.cookieService.get(environment.tokenName));
