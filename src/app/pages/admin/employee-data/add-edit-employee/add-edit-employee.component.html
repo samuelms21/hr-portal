@@ -1,7 +1,30 @@
 <h1>{{ selectedForm }}</h1>
 <div class="container">
-  <div class="flex-container header">
-    <div class="enter-leave-date"></div>
-    <div class="enter-leave-date"></div>
-  </div>
+  <form [formGroup]="employeeDataForm">
+    <div class="flex-container header">
+      <div class="enter-resign-date">
+        <p>Tgl. Masuk:</p>
+        <p-calendar
+          dateFormat="dd.mm.yy"
+          formControlName="enterDate"
+          [showIcon]="true"
+          placeholder="DD.MM.YY"
+        ></p-calendar>
+      </div>
+      <div class="profile-pic">
+        <img [src]="profilePictureURL" alt="Employee Profile Picture" />
+        <h3>Nama Karyawan</h3>
+        <p>NIP: 123456789</p>
+      </div>
+      <div class="enter-resign-date">
+        <p>Tgl. Keluar:</p>
+        <p-calendar
+          dateFormat="dd.mm.yy"
+          formControlName="resignDate"
+          [showIcon]="true"
+          placeholder="DD.MM.YY"
+        ></p-calendar>
+      </div>
+    </div>
+  </form>
 </div>

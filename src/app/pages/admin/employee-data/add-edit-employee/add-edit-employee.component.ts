@@ -1,10 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  FormBuilder,
-} from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-edit-employee',
@@ -12,5 +7,13 @@ import {
   styleUrls: ['./add-edit-employee.component.css'],
 })
 export class AddEditEmployeeComponent {
-  @Input() selectedForm = 'default Form';
+  @Input() selectedForm = 'Default Title';
+  profilePictureURL: string | undefined | null;
+
+  employeeDataForm = new FormGroup({
+    enterDate: new FormControl<Date | null>(null),
+    resignDate: new FormControl<Date | null>(null),
+  });
+
+  onSubmit() {}
 }

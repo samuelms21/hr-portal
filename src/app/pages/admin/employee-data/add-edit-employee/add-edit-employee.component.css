@@ -6,7 +6,7 @@ h1 {
 }
 .container {
   padding: 1.5rem;
-  background-color: var(--surface-300);
+  background-color: var(--surface-200);
 }
 .flex-container {
   display: flex;
@@ -14,4 +14,16 @@ h1 {
 .header {
   justify-content: space-between;
   align-items: center;
+}
+.profile-pic {
+  text-align: center;
+}
+.profile-pic > * {
+  margin-bottom: -0.5rem;
+}
+form * {
+  font-family: Gotham;
+}
+.enter-resign-date > p {
+  font-weight: 700;
 }
