@@ -5,10 +5,10 @@
       <div class="enter-resign-date">
         <p>Tgl. Masuk:</p>
         <p-calendar
-          dateFormat="dd.mm.yy"
+          dateFormat="dd/mm/yy"
           formControlName="enterDate"
           [showIcon]="true"
-          placeholder="DD.MM.YY"
+          placeholder="DD/MM/YY"
         ></p-calendar>
       </div>
       <div class="profile-pic">
@@ -19,12 +19,118 @@
       <div class="enter-resign-date">
         <p>Tgl. Keluar:</p>
         <p-calendar
-          dateFormat="dd.mm.yy"
+          dateFormat="dd/mm/yy"
           formControlName="resignDate"
           [showIcon]="true"
-          placeholder="DD.MM.YY"
+          placeholder="DD/MM/YY"
         ></p-calendar>
       </div>
+    </div>
+    <div class="body">
+      <div class="flex-container body-input">
+        <h4>Photo*</h4>
+        <input
+          type="file"
+          id="employee-photo"
+          (change)="onPhotoUpload($event)"
+          accept="image/*"
+        />
+      </div>
+      <div class="flex-container body-input">
+        <h4>NIP*</h4>
+        <input type="text" pInputText formControlName="NIP" />
+      </div>
+      <div class="flex-container body-input emp-name-input">
+        <h4>Nama*</h4>
+        <div class="name__input">
+          <div class="partial-name-container flex-container">
+            <div class="name-input">
+              <p>Nama Depan*</p>
+              <input type="text" pInputText formControlName="firstName" />
+            </div>
+            <div class="name-input">
+              <p>Nama Tengah</p>
+              <input type="text" pInputText formControlName="middleName" />
+            </div>
+            <div class="name-input">
+              <p>Nama Belakang*</p>
+              <input type="text" pInputText formControlName="lastName" />
+            </div>
+          </div>
+          <p>Nama Lengkap & Gelar*</p>
+          <input
+            type="text"
+            pInputText
+            formControlName="displayName"
+            id="display-name-input"
+          />
+        </div>
+      </div>
+      <div class="flex-container body-input">
+        <h4>Divisi*</h4>
+        <input type="text" pInputText formControlName="division" />
+      </div>
+      <div class="flex-container body-input">
+        <h4>Jabatan*</h4>
+        <input type="text" pInputText formControlName="position" />
+      </div>
+      <div class="flex-container body-input">
+        <h4>Level*</h4>
+        <p-dropdown
+          id="employee-level"
+          formControlName="level"
+          [options]="levels"
+          optionLabel="display"
+        ></p-dropdown>
+      </div>
+      <div class="flex-container body-input" id="tempat-tgl-lahir">
+        <h4>Tempat/Tgl Lahir*</h4>
+        <div class="flex-container">
+          <div>
+            <p>Tempat*</p>
+            <input type="text" pInputText formControlName="birthPlace" />
+          </div>
+          <div>
+            <p>Tanggal Lahir*</p>
+            <p-calendar
+              formControlName="birthDate"
+              dateFormat="dd/mm/yy"
+              [showIcon]="true"
+            ></p-calendar>
+          </div>
+        </div>
+      </div>
+      <div class="flex-container body-input">
+        <h4>Address*</h4>
+        <div class="address__input">
+          <input type="text" pInputText formControlName="address" />
+          <div class="flex-container">
+            <div class="address-input">
+              <p>Provinsi</p>
+              <input type="text" pInputText formControlName="addressProvince" />
+            </div>
+            <div class="address-input">
+              <p>Kota</p>
+              <input type="text" pInputText formControlName="addressCity" />
+            </div>
+          </div>
+          <div class="flex-container">
+            <div class="address-input">
+              <p>Kecamatan</p>
+              <input
+                type="text"
+                pInputText
+                formControlName="addressSubdistrict"
+              />
+            </div>
+            <div class="address-input">
+              <p>Kelurahan</p>
+              <input type="text" pInputText formControlName="addressWard" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <p-button label="Tambah" type="submit" (onClick)="onSubmit()"></p-button>
     </div>
   </form>
 </div>

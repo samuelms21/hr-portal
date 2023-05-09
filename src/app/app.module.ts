@@ -53,6 +53,8 @@ import { TableComponent } from './components/table/table.component';
 import { TableModule } from 'primeng/table';
 import { StoreModule } from '@ngrx/store';
 import { CalendarModule } from 'primeng/calendar';
+import { FileUploadModule } from 'primeng/fileupload';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -110,6 +112,8 @@ import { CalendarModule } from 'primeng/calendar';
     StoreModule.forRoot({}, {}),
     DialogModule,
     CalendarModule,
+    FileUploadModule,
+    ToastModule,
   ],
   providers: [CookieService, authInterceptorProviders],
   bootstrap: [AppComponent],

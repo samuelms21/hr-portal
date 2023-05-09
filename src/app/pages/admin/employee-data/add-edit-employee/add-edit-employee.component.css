@@ -27,3 +27,52 @@ form * {
 .enter-resign-date > p {
   font-weight: 700;
 }
+.body {
+  margin: 2rem 0;
+}
+.body-input {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  padding: 0.5rem 3rem;
+}
+.body-input > h4 {
+  background-color: yellow;
+  width: 20%;
+}
+.emp-name-input {
+  align-items: flex-start;
+}
+.name__input > .partial-name-container {
+  justify-content: space-between;
+}
+#tempat-tgl-lahir > .flex-container {
+  align-items: center;
+}
+#tempat-tgl-lahir > .flex-container > * {
+  margin-right: 1rem;
+}
+.name__input > #display-name-input {
+  width: 100%;
+}
+.body-input > div,
+.body-input > input,
+.body-input > p-dropdown#employee-level {
+  min-width: 80%;
+  background-color: aqua;
+}
+#employee-photo {
+  padding: 0.75rem 1rem;
+  border: 1px var(--surface-400) solid;
+  border-radius: 0.25rem;
+}
+#employee-photo::file-selector-button {
+  border: none;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 0.25rem;
+  font-family: Gotham;
+  cursor: pointer;
+}
